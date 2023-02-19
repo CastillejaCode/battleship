@@ -5,6 +5,266 @@
 		<link rel="icon" type="image/svg+xml" href="/water-solid.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Battleship</title>
+		<script type="module" defer src="/src/main.ts"></script>
 	</head>
-	<body></body>
+	<body class="flex h-screen w-screen flex-col items-center bg-gradient-to-b from-blue-700 via-blue-800 to-gray-900">
+		<header>
+			<h1 class="p-2 text-2xl font-semibold tracking-wide text-gray-200/90">Battleship</h1>
+		</header>
+		<main class="flex h-full w-full flex-col items-center justify-around">
+			<!-- <label for="enemy-grid">Enemy Grids</label> -->
+			<div
+				id="enemy-grid"
+				class="enemy-grid w-90 mb-5 grid aspect-square w-4/5 grid-cols-10 rounded-sm border-2 border-gray-900"
+			>
+				<div class="col" data-x="0">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="1">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="2">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="3">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="4">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="5">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="6">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="7">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="8">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="9">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+			</div>
+			<!-- <label for="your-grid">Enemy Grids</label> -->
+
+			<div
+				id="your-grid"
+				class="your-grid w-90 grid aspect-square w-4/5 grid-cols-10 rounded-sm border-2 border-gray-900"
+			>
+				<div class="col" data-x="0">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="1">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="2">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="3">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="4">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="5">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="6">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="7">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="8">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+				<div class="col" data-x="9">
+					<div class="row" data-y="0"></div>
+					<div class="row" data-y="1"></div>
+					<div class="row" data-y="2"></div>
+					<div class="row" data-y="3"></div>
+					<div class="row" data-y="4"></div>
+					<div class="row" data-y="5"></div>
+					<div class="row" data-y="6"></div>
+					<div class="row" data-y="7"></div>
+					<div class="row" data-y="8"></div>
+					<div class="row" data-y="9"></div>
+				</div>
+			</div>
+		</main>
+	</body>
 </html>
