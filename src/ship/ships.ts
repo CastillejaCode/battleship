@@ -13,4 +13,3 @@ export function ships(length: number) {
 		},
 	};
 }
-

@@ -8,6 +8,7 @@ import { ships } from '../ship/ships';
 interface Ships {
 	length: number;
 	hits: number;
+	hitCoords: number[];
 	getHit: Function;
 	sunk: boolean;
 	isSunk: Function;
@@ -16,12 +17,14 @@ interface Ships {
 export function gameboard() {
 	let shipsList: { coordinates: any[]; ship: Ships }[] = [];
 	let missedList: unknown[] = [];
+	let hitList: unknown[] = [];
 	let checkAllSunk = () => shipsList.every((element) => element.ship.isSunk());
 	return {
 		shipsList,
 		missedList,
+		hitList,
 		placeShip(...coords: any[]) {
-			this.shipsList.push({ coordinates: [...coords], ship: ships(coords.length) });
+			this.shipsList.push({ coordinates: [...coords], ship: ships([...coords].length) });
 		},
 		receiveAttack(coords: number[]) {
 			let hit = false;
@@ -29,6 +32,7 @@ export function gameboard() {
 				for (let j of i.coordinates) {
 					if (j.toString() == coords.toString()) {
 						i.ship.getHit();
+						this.hitList.push(coords);
 						hit = true;
 						checkAllSunk;
 					}
