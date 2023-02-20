@@ -1,8 +1,10 @@
 import './style.css';
 import { domInteraction } from './DOM/DOM';
 import { player1, player2 } from './player/player';
+import { animate } from 'motion';
 
-let buttonConfirm = document.querySelector('button');
+let buttonConfirm = document.querySelector('.fire');
+let buttonEnd = document.querySelector('.end-turn');
 
 let carrier = [
 	[5, 5],
@@ -62,7 +64,8 @@ function placeAll() {
 })();
 
 let coord: number[];
-let turn = player2;
+let turn = true;
+let end = false;
 
 document.querySelector('.enemy-grid')?.addEventListener('click', (e) => {
 	document.querySelectorAll('.enemy-grid > .col > .row').forEach((ele) => ele.classList.remove('bg-gray-900'));
@@ -72,10 +75,44 @@ document.querySelector('.enemy-grid')?.addEventListener('click', (e) => {
 });
 
 buttonConfirm?.addEventListener('click', () => {
-	document.querySelectorAll('.enemy-grid > .col > .row').forEach((ele) => ele.classList.remove('bg-gray-900'));
-	player1.attack(coord);
-	dom.updateGameboards(player1);
-	buttonConfirm?.classList.add('invisible');
+	if (end) {
+		animate((progress) => (buttonConfirm.innerHTML = Math.round(progress * 5).toString()), {
+			duration: 1,
+			easing: 'linear',
+			direction: 'reverse',
+		});
+
+		setTimeout(() => {
+			document
+				.querySelectorAll('.enemy-grid > .col > .row')
+				.forEach((ele) => ele.classList.remove('bg-red-900', 'bg-blue-300'));
+			buttonConfirm?.classList.add('invisible');
+			if (turn) {
+				dom.updateGameboards(player1);
+			} else {
+				dom.updateGameboards(player2);
+			}
+		}, 5000);
+		end = false;
+	} else {
+		buttonConfirm.innerHTML = 'Fire Away';
+		// Remove square selection
+		document.querySelectorAll('.enemy-grid > .col > .row').forEach((ele) => ele.classList.remove('bg-gray-900'));
+
+		if (turn) {
+			player1.attack(coord);
+			dom.updateGameboards(player1);
+		} else {
+			player2.attack(coord);
+			dom.updateGameboards(player2);
+		}
+
+		turn = !turn;
+
+		buttonConfirm.innerHTML = 'Pizza';
+
+		end = true;
+	}
 });
 
 // player1.gameboard.receiveAttack([9, 9]);
