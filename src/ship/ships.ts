@@ -14,4 +14,3 @@ export function ships(length: number) {
 	};
 }
 
-console.log(ships(2));

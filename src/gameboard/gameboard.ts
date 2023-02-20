@@ -14,7 +14,7 @@ interface Ships {
 }
 
 export function gameboard() {
-	let shipsList: { coordinates: number[]; ship: Ships }[] = [];
+	let shipsList: { coordinates: any[]; ship: Ships }[] = [];
 	let missedList: unknown[] = [];
 	let checkAllSunk = () => shipsList.every((element) => element.ship.isSunk());
 	return {

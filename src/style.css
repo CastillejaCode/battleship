@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.col {
+		@apply grid h-full grid-flow-row grid-rows-[10];
+	}
+
+	.row {
+		@apply h-full w-full border border-gray-900 bg-gray-100;
+	}
+}

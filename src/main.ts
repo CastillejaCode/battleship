@@ -1,23 +1,11 @@
 import './style.css';
-import typescriptLogo from './typescript.svg';
-import { setupCounter } from './counter';
+import { dom } from './DOM/DOM';
+import { player1, player2 } from './player/player';
+import { gameboard } from './gameboard/gameboard';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`;
+player1.gameboard.placeShip([0, 1], [0, 2], [0, 0]);
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+let dom1 = dom();
+dom1.updateGameboards();
+
+console.log(player1.gameboard.shipsList);
