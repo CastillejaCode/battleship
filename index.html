@@ -5,13 +5,14 @@
 		<link rel="icon" type="image/svg+xml" href="/water-solid.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Battleship</title>
+		<script src="https://kit.fontawesome.com/3c56c7d658.js" crossorigin="anonymous"></script>
 		<script type="module" defer src="/src/main.ts"></script>
 	</head>
 	<body class="flex h-screen w-screen flex-col items-center bg-gradient-to-b from-blue-700 via-blue-800 to-gray-900">
 		<header>
 			<h1 class="p-2 text-2xl font-semibold tracking-wide text-gray-200/90">Battleship</h1>
 		</header>
-		<main class="flex h-full w-full flex-col items-center justify-around">
+		<main class="flex h-full w-full flex-col items-center justify-evenly">
 			<!-- <label for="enemy-grid">Enemy Grids</label> -->
 			<div
 				id="enemy-grid"
@@ -20,7 +21,7 @@
 				<div class="col" data-x="0">
 					<div class="row" data-y="0"></div>
 					<div class="row" data-y="1"></div>
-					<div class="row" data-y="2"></div>
+					<div class="row relative" data-y="2"></div>
 					<div class="row" data-y="3"></div>
 					<div class="row" data-y="4"></div>
 					<div class="row" data-y="5"></div>
@@ -139,7 +140,9 @@
 				</div>
 			</div>
 			<!-- <label for="your-grid">Enemy Grids</label> -->
-
+			<button class="invisible rounded-lg border-2 border-gray-700 bg-slate-500 px-4 py-2 text-2xl text-slate-200">
+				Fire Away
+			</button>
 			<div
 				id="your-grid"
 				class="your-grid w-90 grid aspect-square w-4/5 grid-cols-10 rounded-sm border-2 border-gray-900"

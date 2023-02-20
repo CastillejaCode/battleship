@@ -8,6 +8,6 @@
 	}
 
 	.row {
-		@apply h-full w-full border border-gray-900 bg-gray-100 text-xs;
+		@apply inline-block h-full w-full  border border-gray-900 bg-gray-100;
 	}
 }

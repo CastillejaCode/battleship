@@ -1,8 +1,18 @@
 import { player1, player2 } from '../player/player';
 
+interface Gameboard {
+	shipsList: [];
+	missedList: [];
+	hitList: [];
+}
+
+interface Player {
+	gameboard: Gameboard;
+}
+
 export function domInteraction() {
 	return {
-		updateMyGameboard(player: object) {
+		updateMyGameboard(player: Player) {
 			for (let i of player.gameboard.shipsList) {
 				for (let j of i.coordinates) {
 					document
@@ -22,7 +32,7 @@ export function domInteraction() {
 			}
 		},
 
-		updateEnemyGameboard(player: object) {
+		updateEnemyGameboard(player: Player) {
 			for (let i of player.gameboard.missedList) {
 				let grid = document.querySelector(`.enemy-grid > [data-x='${i[0]}'] > [data-y='${i[1]}']`);
 
