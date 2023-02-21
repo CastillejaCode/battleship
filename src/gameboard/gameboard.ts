@@ -1,4 +1,6 @@
 import { ships } from '../ship/ships';
+import { animate, spring } from 'motion';
+import 'animate.css';
 
 // interface CoordObject {
 //     coordinates: [],
@@ -35,6 +37,13 @@ export function gameboard(player: 1 | 2) {
 						i.ship.getHit();
 						i.ship.isSunk();
 						if (i.ship.sunk) {
+							// animate('.enemy-grid', { scale: 1.2 }, { easing: spring() });
+							// setTimeout(() => animate('.enemy-grid', { scale: 1 }, { easing: spring() }), 1000);
+							document.querySelector('.enemy-grid')?.classList.add('animate__headShake');
+							setTimeout(() => document.querySelector('.enemy-grid')?.classList.remove('animate__headShake'), 1000);
+
+							document.querySelectorAll('.middle > h1').forEach((e) => e.classList.remove('invisible'));
+
 							document
 								.querySelector(`.ships-left-${this.player.toString()} > [data-length='${i.ship.length.toString()}']`)
 								?.remove();

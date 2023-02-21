@@ -76,8 +76,10 @@ document.querySelector('.enemy-grid')?.addEventListener('click', (e) => {
 
 buttonConfirm?.addEventListener('click', () => {
 	if (end) {
-		document.querySelector('.your-grid')?.classList.add('scale-0', 'opacity-0', 'rotate-180');
-		document.querySelector('.enemy-grid')?.classList.add('scale-0', 'opacity-0', '-rotate-180');
+		document.querySelectorAll('.middle > h1').forEach((e) => e.classList.add('invisible'));
+
+		document.querySelector('.your-grid')?.classList.add('opacity-0');
+		document.querySelector('.enemy-grid')?.classList.add('opacity-0');
 
 		animate((progress) => (buttonConfirm.innerHTML = Math.round(progress * 5).toString()), {
 			duration: 1,
@@ -86,8 +88,8 @@ buttonConfirm?.addEventListener('click', () => {
 		});
 
 		setTimeout(() => {
-			document.querySelector('.your-grid')?.classList.remove('scale-0', 'opacity-0', 'rotate-180');
-			document.querySelector('.enemy-grid')?.classList.remove('scale-0', 'opacity-0', '-rotate-180');
+			document.querySelector('.your-grid')?.classList.remove('opacity-0');
+			document.querySelector('.enemy-grid')?.classList.remove('opacity-0');
 
 			document
 				.querySelectorAll('.enemy-grid > .col > .row')
