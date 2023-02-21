@@ -8,6 +8,6 @@
 	}
 
 	.row {
-		@apply inline-block h-full w-full  border border-gray-900 bg-gray-100;
+		@apply grid aspect-square h-8 place-content-center border border-slate-400 bg-slate-600;
 	}
 }

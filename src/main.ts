@@ -4,7 +4,6 @@ import { player1, player2 } from './player/player';
 import { animate } from 'motion';
 
 let buttonConfirm = document.querySelector('.fire');
-let buttonEnd = document.querySelector('.end-turn');
 
 let carrier = [
 	[5, 5],
@@ -68,6 +67,7 @@ let turn = true;
 let end = false;
 
 document.querySelector('.enemy-grid')?.addEventListener('click', (e) => {
+	if (e.target.tagName == 'I') return;
 	document.querySelectorAll('.enemy-grid > .col > .row').forEach((ele) => ele.classList.remove('bg-gray-900'));
 	coord = [parseInt(e.target?.closest('.col').dataset.x), parseInt(e.target.dataset.y)];
 	e.target?.classList.add('bg-gray-900');
@@ -77,7 +77,7 @@ document.querySelector('.enemy-grid')?.addEventListener('click', (e) => {
 buttonConfirm?.addEventListener('click', () => {
 	if (end) {
 		animate((progress) => (buttonConfirm.innerHTML = Math.round(progress * 5).toString()), {
-			duration: 1,
+			duration: 5,
 			easing: 'linear',
 			direction: 'reverse',
 		});
@@ -87,15 +87,15 @@ buttonConfirm?.addEventListener('click', () => {
 				.querySelectorAll('.enemy-grid > .col > .row')
 				.forEach((ele) => ele.classList.remove('bg-red-900', 'bg-blue-300'));
 			buttonConfirm?.classList.add('invisible');
+			buttonConfirm.innerHTML = '<i class="fa-solid fa-explosion"></i>';
 			if (turn) {
 				dom.updateGameboards(player1);
 			} else {
 				dom.updateGameboards(player2);
 			}
-		}, 5000);
+		}, 6000);
 		end = false;
 	} else {
-		buttonConfirm.innerHTML = 'Fire Away';
 		// Remove square selection
 		document.querySelectorAll('.enemy-grid > .col > .row').forEach((ele) => ele.classList.remove('bg-gray-900'));
 
@@ -109,7 +109,7 @@ buttonConfirm?.addEventListener('click', () => {
 
 		turn = !turn;
 
-		buttonConfirm.innerHTML = 'Pizza';
+		buttonConfirm.innerHTML = '<i class="fa-solid fa-repeat"></i>';
 
 		end = true;
 	}
