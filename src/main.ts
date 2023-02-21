@@ -76,6 +76,9 @@ document.querySelector('.enemy-grid')?.addEventListener('click', (e) => {
 
 buttonConfirm?.addEventListener('click', () => {
 	if (end) {
+		document.querySelector('.your-grid')?.classList.add('scale-0', 'opacity-0', 'rotate-180');
+		document.querySelector('.enemy-grid')?.classList.add('scale-0', 'opacity-0', '-rotate-180');
+
 		animate((progress) => (buttonConfirm.innerHTML = Math.round(progress * 5).toString()), {
 			duration: 5,
 			easing: 'linear',
@@ -83,6 +86,9 @@ buttonConfirm?.addEventListener('click', () => {
 		});
 
 		setTimeout(() => {
+			document.querySelector('.your-grid')?.classList.remove('scale-0', 'opacity-0', 'rotate-180');
+			document.querySelector('.enemy-grid')?.classList.remove('scale-0', 'opacity-0', '-rotate-180');
+
 			document
 				.querySelectorAll('.enemy-grid > .col > .row')
 				.forEach((ele) => ele.classList.remove('bg-red-900', 'bg-blue-300'));
@@ -94,6 +100,7 @@ buttonConfirm?.addEventListener('click', () => {
 				dom.updateGameboards(player2);
 			}
 		}, 6000);
+
 		end = false;
 	} else {
 		// Remove square selection
