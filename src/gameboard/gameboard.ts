@@ -14,12 +14,13 @@ interface Ships {
 	isSunk: Function;
 }
 
-export function gameboard() {
+export function gameboard(player: 1 | 2) {
 	let shipsList: { coordinates: any[]; ship: Ships }[] = [];
 	let missedList: unknown[] = [];
 	let hitList: unknown[] = [];
 	// let checkAllSunk = () => shipsList.every((element) => element.ship.isSunk());
 	return {
+		player,
 		shipsList,
 		missedList,
 		hitList,
@@ -33,7 +34,11 @@ export function gameboard() {
 					if (j.toString() == coords.toString()) {
 						i.ship.getHit();
 						i.ship.isSunk();
-						if (i.ship.sunk) console.log(123);
+						if (i.ship.sunk) {
+							document
+								.querySelector(`.ships-left-${this.player.toString()} > [data-length='${i.ship.length.toString()}']`)
+								?.remove();
+						}
 						this.hitList.push(coords);
 						hit = true;
 					}

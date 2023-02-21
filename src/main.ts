@@ -94,6 +94,9 @@ buttonConfirm?.addEventListener('click', () => {
 				.forEach((ele) => ele.classList.remove('bg-red-900', 'bg-blue-300'));
 			buttonConfirm?.classList.add('invisible');
 			buttonConfirm.innerHTML = '<i class="fa-solid fa-explosion"></i>';
+			document.querySelector('.ships-left-1')?.classList.toggle('invisible');
+			document.querySelector('.ships-left-2')?.classList.toggle('invisible');
+
 			if (turn) {
 				dom.updateGameboards(player1);
 			} else {
