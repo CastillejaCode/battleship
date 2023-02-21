@@ -18,7 +18,7 @@ export function gameboard() {
 	let shipsList: { coordinates: any[]; ship: Ships }[] = [];
 	let missedList: unknown[] = [];
 	let hitList: unknown[] = [];
-	let checkAllSunk = () => shipsList.every((element) => element.ship.isSunk());
+	// let checkAllSunk = () => shipsList.every((element) => element.ship.isSunk());
 	return {
 		shipsList,
 		missedList,
@@ -32,9 +32,10 @@ export function gameboard() {
 				for (let j of i.coordinates) {
 					if (j.toString() == coords.toString()) {
 						i.ship.getHit();
+						i.ship.isSunk();
+						if (i.ship.sunk) console.log(123);
 						this.hitList.push(coords);
 						hit = true;
-						checkAllSunk;
 					}
 				}
 			}

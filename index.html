@@ -12,12 +12,20 @@
 		<header>
 			<h1 class="p-2 text-2xl font-semibold tracking-wide text-gray-200/90">Battleship</h1>
 		</header>
-		<main class="flex w-full flex-col items-center">
+		<main class="flex w-full flex-1 flex-col items-center justify-around">
 			<!-- <label for="enemy-grid">Enemy Grids</label> -->
 			<div
 				id="enemy-grid"
-				class="enemy-grid mb-5 grid aspect-square w-fit grid-cols-10 rounded-sm border-4 border-gray-900 shadow-lg transition-all duration-1000"
+				class="enemy-grid relative grid aspect-square w-fit grid-cols-10 rounded-sm border-4 border-gray-900 shadow-lg transition-all duration-1000"
 			>
+				<h2 class="name absolute -top-8 text-xl text-gray-50">Player 1</h2>
+				<ul class="right absolute -top-8 right-0 flex justify-evenly gap-1 text-xl text-gray-50">
+					<li id="5">5</li>
+					<li id="4">4</li>
+					<li id="3">3</li>
+					<li id="3*">3</li>
+					<li id="2">2</li>
+				</ul>
 				<div class="col" data-x="0">
 					<div class="row" data-y="0"></div>
 					<div class="row" data-y="1"></div>
@@ -140,10 +148,15 @@
 					<div class="row" data-y="9"></div>
 				</div>
 			</div>
+
 			<!-- <label for="your-grid">Enemy Grids</label> -->
-			<button class="fire invisible rounded-lg border-2 border-gray-700 bg-slate-500 px-4 py-2 text-2xl text-slate-200">
-				<i class="fa-solid fa-explosion"></i>
-			</button>
+			<div class="middle flex items-center justify-around">
+				<button
+					class="fire invisible justify-self-center rounded-lg border-2 border-gray-700 bg-slate-500 px-4 py-2 text-2xl text-slate-200"
+				>
+					<i class="fa-solid fa-explosion"></i>
+				</button>
+			</div>
 
 			<div
 				id="your-grid"

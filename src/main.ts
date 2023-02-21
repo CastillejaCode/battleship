@@ -80,7 +80,7 @@ buttonConfirm?.addEventListener('click', () => {
 		document.querySelector('.enemy-grid')?.classList.add('scale-0', 'opacity-0', '-rotate-180');
 
 		animate((progress) => (buttonConfirm.innerHTML = Math.round(progress * 5).toString()), {
-			duration: 5,
+			duration: 1,
 			easing: 'linear',
 			direction: 'reverse',
 		});
@@ -99,7 +99,7 @@ buttonConfirm?.addEventListener('click', () => {
 			} else {
 				dom.updateGameboards(player2);
 			}
-		}, 6000);
+		}, 1000);
 
 		end = false;
 	} else {

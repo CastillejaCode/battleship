@@ -16,6 +16,7 @@ export function domInteraction() {
 			document
 				.querySelectorAll('.your-grid > .col > .row')
 				.forEach((ele) => ele.classList.remove('bg-gray-900', 'bg-blue-300', 'bg-red-900'));
+			document.querySelectorAll('.your-grid > .col > .row').forEach((ele) => (ele.innerHTML = ''));
 
 			for (let i of player.gameboard.shipsList) {
 				for (let j of i.coordinates) {
@@ -34,7 +35,7 @@ export function domInteraction() {
 				let grid = document.querySelector(`.your-grid > [data-x='${i[0]}'] > [data-y='${i[1]}']`);
 				grid?.classList.remove('bg-gray-900');
 				grid?.classList.add('bg-red-900');
-				grid.innerHTML = '<i class="fa-solid fa-burst"></i>';
+				grid.innerHTML = '<i class="fa-solid fa-fire-flame-curved"></i>	';
 			}
 		},
 
@@ -62,9 +63,11 @@ export function domInteraction() {
 			if (us === player1) {
 				this.updateMyGameboard(us);
 				this.updateEnemyGameboard(player2);
+				document.querySelector('.name').textContent = `Player 1`;
 			} else {
-				this.updateMyGameboard(player2);
+				this.updateMyGameboard(us);
 				this.updateEnemyGameboard(player1);
+				document.querySelector('.name').textContent = `Player 2`;
 			}
 		},
 	};
