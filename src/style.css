@@ -10,4 +10,8 @@
 	.row {
 		@apply grid aspect-square h-8 place-content-center border border-slate-400 bg-slate-600;
 	}
+
+	.row-ship {
+		@apply grid aspect-square h-8 place-content-center border border-slate-400 bg-gray-900;
+	}
 }

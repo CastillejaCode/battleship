@@ -20,9 +20,39 @@
 		</header>
 		<main class="flex w-full flex-1 flex-col items-center justify-around">
 			<!-- <label for="enemy-grid">Enemy Grids</label> -->
+			<!-- <div class="ships flex gap-5">
+					<div id="patrol" class="draggable grid h-fit grid-flow-row grid-rows-2 bg-gray-900" draggable="true">
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+					</div>
+
+					<div id="submarine" class="grid h-fit grid-flow-row grid-rows-3 bg-gray-900">
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+					</div>
+					<div id="destroyer" class="grid h-fit grid-flow-row grid-rows-3 bg-gray-900">
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+					</div>
+					<div id="battleship" class="grid h-fit grid-flow-row grid-rows-4 bg-gray-900">
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+					</div>
+					<div id="cruiser" class="grid h-fit grid-flow-row grid-rows-5 bg-gray-900">
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+						<div class="row-ship"></div>
+					</div>
+				</div> -->
 			<div
 				id="enemy-grid"
-				class="enemy-grid animate__animated relative grid aspect-square w-fit grid-cols-10 rounded-sm border-4 border-gray-900 shadow-lg transition-all duration-1000"
+				class="enemy-grid animate__animated relative grid hidden aspect-square w-fit grid-cols-10 rounded-sm border-4 border-gray-900 shadow-lg transition-all duration-1000"
 			>
 				<h2 class="name absolute -top-8 text-xl text-gray-50">Player 1</h2>
 				<ul class="ships-left-1 absolute -top-8 right-0 flex justify-evenly gap-1 text-xl text-gray-50">
@@ -163,7 +193,7 @@
 			</div>
 
 			<!-- <label for="your-grid">Enemy Grids</label> -->
-			<div class="middle relative flex items-center justify-around gap-6">
+			<div class="middle relative flex hidden items-center justify-around gap-6">
 				<h1 class="invisible text-3xl text-gray-50">Ship</h1>
 				<button
 					class="fire invisible justify-self-center rounded-lg border-2 border-gray-700 bg-slate-500 px-4 py-2 text-2xl text-slate-200"
@@ -175,8 +205,9 @@
 
 			<div
 				id="your-grid"
-				class="your-grid mb-5 grid aspect-square w-fit grid-cols-10 rounded-sm border-4 border-gray-900 shadow-lg transition-all duration-1000"
+				class="your-grid relative mb-5 grid aspect-square w-fit grid-cols-10 rounded-sm border-4 border-gray-900 shadow-lg transition-all duration-1000"
 			>
+				<h2 class="name-your-grid absolute -top-8 text-xl text-gray-50">Player 1</h2>
 				<div class="col" data-x="0">
 					<div class="row" data-y="0"></div>
 					<div class="row" data-y="1"></div>
@@ -298,6 +329,21 @@
 					<div class="row" data-y="9"></div>
 				</div>
 			</div>
+			<button
+				class="confirm justify-self-center rounded-lg border-2 border-gray-700 bg-slate-500 px-4 py-2 text-2xl text-slate-200"
+			>
+				Confirm
+			</button>
 		</main>
+		<!-- <div
+			class="modal fixed left-1/2 top-1/2 z-10 flex w-3/4 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-4 border-gray-900 bg-slate-600 p-3 shadow-md"
+		>
+			<div class="mb-5 flex h-fit flex-col gap-2 text-center text-3xl text-gray-50">
+				<h1 class="text-4xl font-semibold">Winner</h1>
+				<h2>Player 1</h2>
+			</div>
+			<button class="restart text-2xl"><i class="fa-solid fa-repeat"></i></button>
+		</div>
+		<div class="modal-overlay fixed h-screen w-screen bg-gray-900/70"></div> -->
 	</body>
 </html>

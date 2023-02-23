@@ -36,6 +36,9 @@ export function gameboard(player: 1 | 2) {
 					if (j.toString() == coords.toString()) {
 						i.ship.getHit();
 						i.ship.isSunk();
+						if (this.shipsList.every((e) => e.ship.sunk)) {
+							console.log(123);
+						}
 						if (i.ship.sunk) {
 							// animate('.enemy-grid', { scale: 1.2 }, { easing: spring() });
 							// setTimeout(() => animate('.enemy-grid', { scale: 1 }, { easing: spring() }), 1000);
