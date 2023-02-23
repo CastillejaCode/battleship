@@ -7,6 +7,7 @@ let buttonFire = document.querySelector('.fire');
 let buttonConfirm = document.querySelector('.confirm');
 let grid = document.querySelectorAll(' .your-grid  .row');
 let allColumns = document.querySelectorAll('.col');
+let buttonRestart = document.querySelector('.restart');
 
 // let carrier = [
 // 	[5, 5],
@@ -94,12 +95,19 @@ buttonConfirm?.addEventListener('click', () => {
 			if (ele.classList.contains('bg-gray-900')) {
 				++i;
 				if (i === 2 && !turn) {
-					turn = !turn;
-					document.querySelector('.name-your-grid')?.classList.add('hidden');
-					init();
-					document.querySelector('.enemy-grid')?.classList.remove('hidden');
-					document.querySelector('.middle')?.classList.remove('hidden');
-					buttonConfirm.classList.add('hidden');
+					animate((progress) => (buttonConfirm.innerHTML = Math.round(progress * 5).toString()), {
+						duration: 5,
+						easing: 'linear',
+						direction: 'reverse',
+					});
+					setTimeout(() => {
+						turn = !turn;
+						document.querySelector('.name-your-grid')?.classList.add('hidden');
+						init();
+						document.querySelector('.enemy-grid')?.classList.remove('hidden');
+						document.querySelector('.middle')?.classList.remove('hidden');
+						buttonConfirm.classList.add('hidden');
+					}, 5500);
 				} else if (i === 2) {
 					turn = !turn;
 					document.querySelector('.name-your-grid').textContent = 'Player 2';
@@ -194,6 +202,7 @@ buttonFire?.addEventListener('click', () => {
 	}
 });
 
+buttonRestart?.addEventListener('click', () => {});
 // player1.gameboard.receiveAttack([9, 9]);
 // player1.gameboard.receiveAttack([1, 1]);
 // player1.gameboard.receiveAttack([0, 1]);

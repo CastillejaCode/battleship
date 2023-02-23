@@ -37,7 +37,8 @@ export function gameboard(player: 1 | 2) {
 						i.ship.getHit();
 						i.ship.isSunk();
 						if (this.shipsList.every((e) => e.ship.sunk)) {
-							console.log(123);
+							document.querySelector('.modal-container')?.classList.remove('hidden');
+							document.querySelector('.winner').textContent = `Player ${this.player}`;
 						}
 						if (i.ship.sunk) {
 							// animate('.enemy-grid', { scale: 1.2 }, { easing: spring() });
