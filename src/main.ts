@@ -107,7 +107,7 @@ buttonConfirm?.addEventListener('click', () => {
 						document.querySelector('.enemy-grid')?.classList.remove('hidden');
 						document.querySelector('.middle')?.classList.remove('hidden');
 						buttonConfirm.classList.add('hidden');
-					}, 5500);
+					}, 5100);
 				} else if (i === 2) {
 					turn = !turn;
 					document.querySelector('.name-your-grid').textContent = 'Player 2';
@@ -157,7 +157,7 @@ buttonFire?.addEventListener('click', () => {
 		document.querySelector('.enemy-grid')?.classList.add('opacity-0');
 
 		animate((progress) => (buttonFire.innerHTML = Math.round(progress * 5).toString()), {
-			duration: 1,
+			duration: 5,
 			easing: 'linear',
 			direction: 'reverse',
 		});
@@ -179,7 +179,7 @@ buttonFire?.addEventListener('click', () => {
 			} else {
 				dom.updateGameboards(player2);
 			}
-		}, 1000);
+		}, 5100);
 
 		end = false;
 	} else {
@@ -203,6 +203,11 @@ buttonFire?.addEventListener('click', () => {
 });
 
 buttonRestart?.addEventListener('click', () => {});
+
+document.querySelector('.start')?.addEventListener('click', () => {
+	document.querySelector('main')?.classList.remove('hidden');
+	document.querySelector('.new-game-container')?.classList.add('hidden');
+});
 // player1.gameboard.receiveAttack([9, 9]);
 // player1.gameboard.receiveAttack([1, 1]);
 // player1.gameboard.receiveAttack([0, 1]);

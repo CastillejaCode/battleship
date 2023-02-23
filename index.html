@@ -18,7 +18,7 @@
 		<header>
 			<h1 class="p-2 text-2xl font-semibold tracking-wide text-gray-200/90">Battleship</h1>
 		</header>
-		<main class="flex w-full flex-1 flex-col items-center justify-around">
+		<main class="flex hidden w-full flex-1 flex-col items-center justify-around">
 			<!-- <label for="enemy-grid">Enemy Grids</label> -->
 			<!-- <div class="ships flex gap-5">
 					<div id="patrol" class="draggable grid h-fit grid-flow-row grid-rows-2 bg-gray-900" draggable="true">
@@ -328,12 +328,12 @@
 					<div class="row" data-y="8"></div>
 					<div class="row" data-y="9"></div>
 				</div>
+				<button
+					class="confirm absolute -bottom-20 left-1/2 -translate-x-1/2 justify-self-center rounded-lg border-2 border-gray-700 bg-slate-500 px-4 py-2 text-2xl text-slate-200"
+				>
+					Confirm
+				</button>
 			</div>
-			<button
-				class="confirm justify-self-center rounded-lg border-2 border-gray-700 bg-slate-500 px-4 py-2 text-2xl text-slate-200"
-			>
-				Confirm
-			</button>
 		</main>
 		<div class="modal-container fixed hidden h-screen w-screen">
 			<div
@@ -341,9 +341,25 @@
 			>
 				<div class="mb-5 flex h-fit flex-col gap-2 text-center text-3xl text-gray-50">
 					<h1 class="text-4xl font-semibold">Winner</h1>
-					<h2 class="winner">Player 1</h2>
+					<h2 class="winner"></h2>
 				</div>
-				<button class="restart text-2xl" type="submit"><i class="fa-solid fa-repeat"></i></button>
+				<button class="restart text-2xl" onclick="window.location.reload()"><i class="fa-solid fa-repeat"></i></button>
+			</div>
+			<div class="modal-overlay fixed h-screen w-screen bg-gray-900/70"></div>
+		</div>
+		<div class="new-game-container fixed h-screen w-screen">
+			<div
+				class="new-game fixed left-1/2 top-1/2 z-10 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-4 border-gray-900 bg-slate-600 px-10 py-5 shadow-md"
+			>
+				<div class="flex h-fit w-fit flex-col items-center gap-2 text-center text-3xl text-gray-50">
+					<h1 class="mb-5 text-5xl text-gray-50">Battleship</h1>
+					<div class="mb-5 flex gap-4">
+						<h1 class="text-3xl font-semibold">2P</h1>
+						<!-- <h1 class="text-3xl font-semibold">Comp</h1> -->
+					</div>
+
+					<button class="start rounded-lg border-2 border-gray-400 px-2 py-1 text-2xl">Start</button>
+				</div>
 			</div>
 			<div class="modal-overlay fixed h-screen w-screen bg-gray-900/70"></div>
 		</div>
